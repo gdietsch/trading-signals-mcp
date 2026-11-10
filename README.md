@@ -33,7 +33,7 @@ You need Node.js 18.17+ and a **dedicated** Base wallet private key holding a fe
 Run it directly:
 
 ```bash
-X402_PRIVATE_KEY=0xYOUR_DEDICATED_WALLET_KEY npx -y github:gdietsch/trading-signals-mcp
+X402_PRIVATE_KEY=0xYOUR_DEDICATED_WALLET_KEY npx -y x402-trading-signals-mcp
 ```
 
 ### Claude Desktop
@@ -45,7 +45,7 @@ X402_PRIVATE_KEY=0xYOUR_DEDICATED_WALLET_KEY npx -y github:gdietsch/trading-sign
   "mcpServers": {
     "trading-signals": {
       "command": "npx",
-      "args": ["-y", "github:gdietsch/trading-signals-mcp"],
+      "args": ["-y", "x402-trading-signals-mcp"],
       "env": {
         "X402_PRIVATE_KEY": "0xYOUR_DEDICATED_WALLET_KEY",
         "MAX_USD_PER_CALL": "0.50"
@@ -64,7 +64,7 @@ X402_PRIVATE_KEY=0xYOUR_DEDICATED_WALLET_KEY npx -y github:gdietsch/trading-sign
   "mcpServers": {
     "trading-signals": {
       "command": "npx",
-      "args": ["-y", "github:gdietsch/trading-signals-mcp"],
+      "args": ["-y", "x402-trading-signals-mcp"],
       "env": {
         "X402_PRIVATE_KEY": "0xYOUR_DEDICATED_WALLET_KEY",
         "MAX_USD_PER_CALL": "0.50"
@@ -80,7 +80,7 @@ X402_PRIVATE_KEY=0xYOUR_DEDICATED_WALLET_KEY npx -y github:gdietsch/trading-sign
 claude mcp add trading-signals \
   --env X402_PRIVATE_KEY=0xYOUR_DEDICATED_WALLET_KEY \
   --env MAX_USD_PER_CALL=0.50 \
-  -- npx -y github:gdietsch/trading-signals-mcp
+  -- npx -y x402-trading-signals-mcp
 ```
 
 ### LangChain (langchain-mcp-adapters)
@@ -95,7 +95,7 @@ async def main():
     client = MultiServerMCPClient({
         "trading-signals": {
             "command": "npx",
-            "args": ["-y", "github:gdietsch/trading-signals-mcp"],
+            "args": ["-y", "x402-trading-signals-mcp"],
             "transport": "stdio",
             "env": {**os.environ, "X402_PRIVATE_KEY": os.environ["X402_PRIVATE_KEY"], "MAX_USD_PER_CALL": "0.50"},
         }
