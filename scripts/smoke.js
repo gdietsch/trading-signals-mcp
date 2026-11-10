@@ -25,9 +25,9 @@ await withServer({}, async (c) => {
   check(r.isError && /X402_PRIVATE_KEY/.test(r.content[0].text), `no key → clear error: "${r.content[0].text.slice(0, 90)}…"`);
 });
 
-await withServer({ X402_PRIVATE_KEY: generatePrivateKey(), MAX_USD_PER_CALL: "0.10" }, async (c) => {
+await withServer({ X402_PRIVATE_KEY: generatePrivateKey(), MAX_USD_PER_CALL: "0.05" }, async (c) => {
   const r = await c.callTool({ name: "pre_trade_check", arguments: { symbol: "ES" } });
-  check(r.isError && /above MAX_USD_PER_CALL/.test(r.content[0].text), `cap 0.10 refuses $0.25 bundle: "${r.content[0].text.slice(0, 80)}…"`);
+  check(r.isError && /above MAX_USD_PER_CALL/.test(r.content[0].text), `cap 0.05 refuses $0.10 bundle: "${r.content[0].text.slice(0, 80)}…"`);
 });
 
 if (process.env.SMOKE_NETWORK !== "0") {

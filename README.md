@@ -1,17 +1,17 @@
 # Trading Signals MCP
 
-An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable agent one-line access to the [Trading Signals Toolkit](https://trading-signals-toolkit.onrender.com): a $0.25 GO / CAUTION / NO_GO pre-trade check, a futures event-risk gate and session brief built from US government macro data (BLS, Federal Reserve, Treasury, CFTC), SEC Form 4 insider buys and cluster buys, Base token safety verdicts, and small quant calculators. There are no API keys or sign-ups: each tool call pays for itself automatically over [x402](https://www.x402.org/) in USDC on Base, from a wallet you control, with a per-call spend cap.
+An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable agent one-line access to the [Trading Signals Toolkit](https://trading-signals-toolkit.onrender.com): a $0.10 GO / CAUTION / NO_GO pre-trade check, a futures event-risk gate and session brief built from US government macro data (BLS, Federal Reserve, Treasury, CFTC), SEC Form 4 insider buys and cluster buys, Base token safety verdicts, and small quant calculators. There are no API keys or sign-ups: each tool call pays for itself automatically over [x402](https://www.x402.org/) in USDC on Base, from a wallet you control, with a per-call spend cap.
 
 ## Tools and prices
 
 | Tool | Price (USDC) | What it returns |
 |---|---|---|
-| `pre_trade_check` | $0.25 | One GO / CAUTION / NO_GO verdict with plain reasons for ES/NQ/CL/GC/ZN: event gate + session brief + SEC insider activity (+ optional Base token verdict) |
+| `pre_trade_check` | $0.10 | One GO / CAUTION / NO_GO verdict with plain reasons for ES/NQ/CL/GC/ZN: event gate + session brief + SEC insider activity (+ optional Base token verdict) |
 | `event_gate` | $0.01 | safeToTrade + next high-impact US release (CPI, NFP, PPI, FOMC, Treasury auctions) |
 | `session_brief` | $0.03 | Upcoming releases, latest BLS values, Treasury 2y/10y/2s10s, CFTC COT positioning, holidays, verdict |
 | `token_verdict` | $0.02 | A-F verdict for a Base ERC-20: owner, proxy, liquidity, honeypot simulation, taxes |
-| `insider_buys` | $0.03 | SEC Form 4 open-market insider purchases for one ticker |
-| `insider_clusters` | $0.05 | Tickers with several distinct insiders buying in the last N days |
+| `insider_buys` | $0.01 | SEC Form 4 open-market insider purchases for one ticker |
+| `insider_clusters` | $0.02 | Tickers with several distinct insiders buying in the last N days |
 | `vwap_bands` | $0.005 | VWAP + standard-deviation bands from your bars |
 | `opening_range` | $0.005 | Opening range, breakout state and targets from your bars |
 | `atr_stop` | $0.005 | Wilder ATR, stop price and position size |
@@ -115,7 +115,7 @@ Each tool calls one HTTPS route. The API answers `402 Payment Required` with the
 
 - **Use a dedicated, low-balance wallet.** Create a fresh wallet just for this, fund it with only what you are willing to spend (for example $2–$5 of USDC on Base), and never use a key that holds other funds.
 - The key stays on your machine: it is read from the environment, used only to sign payment authorizations locally, and never sent to the API or logged.
-- Keep `MAX_USD_PER_CALL` low. The default ($0.50) allows every tool; set `0.10` to block the $0.25 bundle.
+- Keep `MAX_USD_PER_CALL` low. The default ($0.50) allows every tool; set `0.05` to block the $0.10 bundle.
 - Your MCP client config file now contains a private key: don't commit or share it.
 
 ## Development

@@ -13,7 +13,7 @@ const TZ = z.string().optional().describe("IANA timezone for sessions (default A
 export const TOOLS = [
   {
     name: "pre_trade_check",
-    price: 0.25,
+    price: 0.10,
     method: "GET",
     path: "/bundle/pre-trade-check",
     title: "Pre-Trade Check (bundle)",
@@ -54,7 +54,7 @@ export const TOOLS = [
   },
   {
     name: "insider_buys",
-    price: 0.03,
+    price: 0.01,
     method: "GET",
     path: "/sec/insider-buys",
     title: "SEC Insider Buys (ticker)",
@@ -66,7 +66,7 @@ export const TOOLS = [
   },
   {
     name: "insider_clusters",
-    price: 0.05,
+    price: 0.02,
     method: "GET",
     path: "/sec/insider-clusters",
     title: "SEC Insider Cluster Buys (market-wide)",
