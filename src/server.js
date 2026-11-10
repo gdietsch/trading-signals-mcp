@@ -5,7 +5,7 @@
  * Env:
  *   X402_PRIVATE_KEY   0x… private key of a DEDICATED low-balance Base wallet holding USDC (required to call tools)
  *   MAX_USD_PER_CALL   per-call spend cap in USD (default 0.50); payments above it are refused
- *   TRADING_SIGNALS_BASE_URL  API base URL (default https://trading-signals-toolkit.onrender.com)
+ *   TRADING_SIGNALS_BASE_URL  API base URL (default https://signals.incomefather.com)
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -15,7 +15,7 @@ import { privateKeyToAccount } from "viem/accounts";
 import { TOOLS, fmtPrice } from "./tools.js";
 
 export const VERSION = "0.1.1";
-export const DEFAULT_BASE_URL = "https://trading-signals-toolkit.onrender.com";
+export const DEFAULT_BASE_URL = "https://signals.incomefather.com";
 const BASE_MAINNET = "eip155:8453";
 const USDC_BASE = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913";
 

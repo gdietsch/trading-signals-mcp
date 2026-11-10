@@ -1,6 +1,6 @@
 # Trading Signals MCP
 
-An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable agent one-line access to the [Trading Signals Toolkit](https://trading-signals-toolkit.onrender.com): a $0.10 GO / CAUTION / NO_GO pre-trade check, a futures event-risk gate, session brief and macro event study built from US government macro data (BLS, Federal Reserve, Treasury, CFTC), SEC Form 4 insider buys and cluster buys, Base token safety verdicts, and small quant calculators. Each tool call pays for itself automatically over [x402](https://www.x402.org/) in USDC on Base, from a wallet you control, with a per-call spend cap. You can also try the HTTP API with a free API key (100 calls/month, no card) from the [pricing page](https://trading-signals-toolkit.onrender.com/pricing).
+An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable agent one-line access to the [Trading Signals Toolkit](https://signals.incomefather.com): a $0.10 GO / CAUTION / NO_GO pre-trade check, a futures event-risk gate, session brief and macro event study built from US government macro data (BLS, Federal Reserve, Treasury, CFTC), SEC Form 4 insider buys and cluster buys, Base token safety verdicts, and small quant calculators. Each tool call pays for itself automatically over [x402](https://www.x402.org/) in USDC on Base, from a wallet you control, with a per-call spend cap. You can also try the HTTP API with a free API key (100 calls/month, no card) from the [pricing page](https://signals.incomefather.com/pricing).
 
 ## Tools and prices
 
@@ -28,7 +28,7 @@ You need Node.js 18.17+ and a **dedicated** Base wallet private key holding a fe
 |---|---|---|---|
 | `X402_PRIVATE_KEY` | yes (to call tools) | – | 0x-prefixed private key of the paying wallet |
 | `MAX_USD_PER_CALL` | no | `0.50` | Hard cap per call; anything pricier is refused before signing |
-| `TRADING_SIGNALS_BASE_URL` | no | `https://trading-signals-toolkit.onrender.com` | API base URL |
+| `TRADING_SIGNALS_BASE_URL` | no | `https://signals.incomefather.com` | API base URL |
 
 Run it directly:
 
