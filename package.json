@@ -1,0 +1,63 @@
+{
+  "name": "x402-trading-signals-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the Trading Signals Toolkit: pay-per-call futures event-risk gate, session brief, $0.25 pre-trade check, SEC insider buys/clusters, Base token verdicts and quant calculators, paid automatically over x402 (USDC on Base).",
+  "type": "module",
+  "bin": {
+    "trading-signals-mcp": "bin/trading-signals-mcp.js",
+    "x402-trading-signals-mcp": "bin/trading-signals-mcp.js"
+  },
+  "main": "src/server.js",
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node bin/trading-signals-mcp.js",
+    "build": "node scripts/check-syntax.js",
+    "test": "node scripts/smoke.js"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "x402",
+    "usdc",
+    "base",
+    "trading",
+    "futures",
+    "event-risk",
+    "sec",
+    "insider-trading",
+    "form4",
+    "token-security",
+    "claude",
+    "cursor",
+    "langchain",
+    "ai-agents"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdietsch/trading-signals-mcp.git"
+  },
+  "homepage": "https://github.com/gdietsch/trading-signals-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/gdietsch/trading-signals-mcp/issues"
+  },
+  "author": "gdietsch",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@x402/evm": "^2.30.0",
+    "@x402/fetch": "^2.30.0",
+    "viem": "^2.57.17",
+    "zod": "^3.25.76"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
