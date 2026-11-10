@@ -1,0 +1,24 @@
+# Smithery configuration (stdio). https://smithery.ai/docs
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - x402PrivateKey
+    properties:
+      x402PrivateKey:
+        type: string
+        description: Private key (0x…) of a DEDICATED low-balance Base wallet holding a little USDC. Each tool call pays its listed price.
+      maxUsdPerCall:
+        type: number
+        default: 0.5
+        description: Per-call spend cap in USD; pricier calls are refused before signing.
+  commandFunction: |-
+    (config) => ({
+      command: 'node',
+      args: ['bin/trading-signals-mcp.js'],
+      env: {
+        X402_PRIVATE_KEY: config.x402PrivateKey,
+        MAX_USD_PER_CALL: String(config.maxUsdPerCall ?? 0.5)
+      }
+    })

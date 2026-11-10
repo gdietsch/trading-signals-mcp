@@ -1,0 +1,36 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.gdietsch/trading-signals-mcp",
+  "description": "x402 pay-per-call trading tools: $0.25 pre-trade check, futures event gate, SEC insider buys, Base token verdicts.",
+  "repository": {
+    "url": "https://github.com/gdietsch/trading-signals-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "x402-trading-signals-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "X402_PRIVATE_KEY",
+          "description": "Private key of a dedicated low-balance Base wallet holding USDC (pays per call)",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "MAX_USD_PER_CALL",
+          "description": "Per-call spend cap in USD (default 0.50)",
+          "isRequired": false,
+          "format": "string",
+          "default": "0.50"
+        }
+      ]
+    }
+  ]
+}

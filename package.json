@@ -1,6 +1,7 @@
 {
   "name": "x402-trading-signals-mcp",
   "version": "0.1.0",
+  "mcpName": "io.github.gdietsch/trading-signals-mcp",
   "description": "MCP server for the Trading Signals Toolkit: pay-per-call futures event-risk gate, session brief, $0.25 pre-trade check, SEC insider buys/clusters, Base token verdicts and quant calculators, paid automatically over x402 (USDC on Base).",
   "type": "module",
   "bin": {
@@ -12,7 +13,8 @@
     "bin",
     "src",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "start": "node bin/trading-signals-mcp.js",
