@@ -1,6 +1,6 @@
 # Trading Signals MCP
 
-An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable agent one-line access to the [Trading Signals Toolkit](https://trading-signals-toolkit.onrender.com): a $0.10 GO / CAUTION / NO_GO pre-trade check, a futures event-risk gate, session brief and macro event study built from US government macro data (BLS, Federal Reserve, Treasury, CFTC), SEC Form 4 insider buys and cluster buys, Base token safety verdicts, and small quant calculators. There are no API keys or sign-ups: each tool call pays for itself automatically over [x402](https://www.x402.org/) in USDC on Base, from a wallet you control, with a per-call spend cap.
+An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable agent one-line access to the [Trading Signals Toolkit](https://trading-signals-toolkit.onrender.com): a $0.10 GO / CAUTION / NO_GO pre-trade check, a futures event-risk gate, session brief and macro event study built from US government macro data (BLS, Federal Reserve, Treasury, CFTC), SEC Form 4 insider buys and cluster buys, Base token safety verdicts, and small quant calculators. Each tool call pays for itself automatically over [x402](https://www.x402.org/) in USDC on Base, from a wallet you control, with a per-call spend cap. You can also try the HTTP API with a free API key (100 calls/month, no card) from the [pricing page](https://trading-signals-toolkit.onrender.com/pricing).
 
 ## Tools and prices
 
