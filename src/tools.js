@@ -35,6 +35,20 @@ export const TOOLS = [
     input: { window: WINDOW },
   },
   {
+    name: "event_study",
+    price: 0.02,
+    method: "GET",
+    path: "/futures/event-study",
+    title: "Macro Event Study (what happened last time)",
+    description: "How ES/NQ/RTY/ZN moved +5/+15/+30/+60 min after each of the last N CPI, NFP (jobs), FOMC, PPI, retail sales, GDP or PCE releases (% and approx. points, ETF proxies from IEX historical data), with median/mean/80th/90th-percentile absolute moves, max adverse move, % of releases with a >0.5% 30-min move, up/down counts and a suggested stop width (80th-pct |15-min move|).",
+    input: {
+      event: z.enum(["CPI", "NFP", "FOMC", "PPI", "RETAIL", "GDP", "PCE"]).describe("Release type: CPI, NFP (jobs report), FOMC (rate decision), PPI, RETAIL (retail sales), GDP, PCE"),
+      symbol: z.enum(["ES", "NQ", "RTY", "ZN", "ZB", "SPY", "QQQ", "IWM", "IEF", "TLT"]).optional().describe("Futures root or ETF (default ES)"),
+      lookback: z.number().int().min(1).max(24).optional().describe("Number of past releases (1-24, default 12)"),
+      price: z.number().positive().optional().describe("Optional current price, to express moves and the stop in points"),
+    },
+  },
+  {
     name: "session_brief",
     price: 0.03,
     method: "GET",

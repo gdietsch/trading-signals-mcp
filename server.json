@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.gdietsch/trading-signals-mcp",
-  "description": "x402 pay-per-call trading tools: $0.10 pre-trade check, futures event gate, SEC insider buys, Base token verdicts.",
+  "description": "x402 pay-per-call trading tools: pre-trade check, event gate, event study, insider buys, token check",
   "repository": {
     "url": "https://github.com/gdietsch/trading-signals-mcp",
     "source": "github"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "x402-trading-signals-mcp",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "transport": {
         "type": "stdio"
       },

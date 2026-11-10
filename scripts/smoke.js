@@ -19,7 +19,7 @@ async function withServer(env, fn) {
 
 await withServer({}, async (c) => {
   const { tools } = await c.listTools();
-  check(tools.length === 10, `lists ${tools.length} tools: ${tools.map((t) => t.name).join(", ")}`);
+  check(tools.length === 11, `lists ${tools.length} tools: ${tools.map((t) => t.name).join(", ")}`);
   check(tools.every((t) => /^Price: \$\d/.test(t.description)), "every tool description states its price");
   const r = await c.callTool({ name: "event_gate", arguments: { window: 30 } });
   check(r.isError && /X402_PRIVATE_KEY/.test(r.content[0].text), `no key → clear error: "${r.content[0].text.slice(0, 90)}…"`);

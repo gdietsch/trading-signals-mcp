@@ -1,6 +1,6 @@
 # Trading Signals MCP
 
-An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable agent one-line access to the [Trading Signals Toolkit](https://trading-signals-toolkit.onrender.com): a $0.10 GO / CAUTION / NO_GO pre-trade check, a futures event-risk gate and session brief built from US government macro data (BLS, Federal Reserve, Treasury, CFTC), SEC Form 4 insider buys and cluster buys, Base token safety verdicts, and small quant calculators. There are no API keys or sign-ups: each tool call pays for itself automatically over [x402](https://www.x402.org/) in USDC on Base, from a wallet you control, with a per-call spend cap.
+An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable agent one-line access to the [Trading Signals Toolkit](https://trading-signals-toolkit.onrender.com): a $0.10 GO / CAUTION / NO_GO pre-trade check, a futures event-risk gate, session brief and macro event study built from US government macro data (BLS, Federal Reserve, Treasury, CFTC), SEC Form 4 insider buys and cluster buys, Base token safety verdicts, and small quant calculators. There are no API keys or sign-ups: each tool call pays for itself automatically over [x402](https://www.x402.org/) in USDC on Base, from a wallet you control, with a per-call spend cap.
 
 ## Tools and prices
 
@@ -8,6 +8,7 @@ An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable age
 |---|---|---|
 | `pre_trade_check` | $0.10 | One GO / CAUTION / NO_GO verdict with plain reasons for ES/NQ/CL/GC/ZN: event gate + session brief + SEC insider activity (+ optional Base token verdict) |
 | `event_gate` | $0.01 | safeToTrade + next high-impact US release (CPI, NFP, PPI, FOMC, Treasury auctions) |
+| `event_study` | $0.02 | What happened last time: ES/NQ/RTY/ZN moves +5/+15/+30/+60 min after the last N CPI, jobs, FOMC, PPI, retail sales, GDP or PCE releases, percentiles, max adverse move and a suggested stop width |
 | `session_brief` | $0.03 | Upcoming releases, latest BLS values, Treasury 2y/10y/2s10s, CFTC COT positioning, holidays, verdict |
 | `token_verdict` | $0.02 | A-F verdict for a Base ERC-20: owner, proxy, liquidity, honeypot simulation, taxes |
 | `insider_buys` | $0.01 | SEC Form 4 open-market insider purchases for one ticker |
