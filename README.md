@@ -8,6 +8,7 @@ Copy-paste quickstarts (curl, JavaScript and Python x402 clients, Claude Desktop
 
 | Tool | Price (USDC) | What it returns |
 |---|---|---|
+| `ai_trade_brief` | $0.08 | AI-written structured brief for ES/NQ/CL/GC/ZN from the toolkit's own data: bias, confidence, key levels, risks, catalysts (ET), trade-plan notes, GO/CAUTION/NO_GO tradeability. Not charged if the AI is unavailable |
 | `pre_trade_check` | $0.10 | One GO / CAUTION / NO_GO verdict with plain reasons for ES/NQ/CL/GC/ZN: event gate + session brief + SEC insider activity (+ optional Base token verdict) |
 | `event_gate` | $0.01 | safeToTrade + next high-impact US release (CPI, NFP, PPI, FOMC, Treasury auctions) |
 | `event_study` | $0.02 | What happened last time: ES/NQ/RTY/ZN moves +5/+15/+30/+60 min after the last N CPI, jobs, FOMC, PPI, retail sales, GDP or PCE releases, percentiles, max adverse move and a suggested stop width |

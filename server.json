@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.gdietsch/trading-signals-mcp",
-  "description": "x402 pay-per-call trading tools: pre-trade check, event gate, event study, insider buys, token check",
+  "description": "x402 pay-per-call trading tools: AI trade brief, pre-trade check, event gate, insider buys",
   "repository": {
     "url": "https://github.com/gdietsch/trading-signals-mcp",
     "source": "github"
   },
-  "version": "0.1.3",
+  "version": "0.1.4",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "x402-trading-signals-mcp",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "transport": {
         "type": "stdio"
       },
@@ -29,6 +29,13 @@
           "isRequired": false,
           "format": "string",
           "default": "0.50"
+        },
+        {
+          "name": "TRADING_SIGNALS_BASE_URL",
+          "description": "API base URL (default https://signals.incomefather.com)",
+          "isRequired": false,
+          "format": "string",
+          "default": "https://signals.incomefather.com"
         }
       ]
     }

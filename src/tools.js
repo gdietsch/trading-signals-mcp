@@ -12,6 +12,19 @@ const TZ = z.string().optional().describe("IANA timezone for sessions (default A
 
 export const TOOLS = [
   {
+    name: "ai_trade_brief",
+    price: 0.08,
+    method: "GET",
+    path: "/ai/trade-brief",
+    title: "AI Trade Brief",
+    description: "Short structured pre-trade brief for ES/NQ/CL/GC/ZN written by an LLM strictly from the toolkit's own data (event-risk gate, session brief with US macro calendar, Treasury yields and CFTC positioning, SEC insider clusters, and the macro event study for the next high-impact release): headline, bias (bullish/bearish/neutral/stand_aside), confidence, summary, key levels, risks, catalysts with ET times, trade-plan notes, a deterministic GO/CAUTION/NO_GO tradeability, and the input facts. A NO_GO check always forces stand_aside. Not investment advice. If the AI upstream is unavailable the call fails before payment settles (not charged).",
+    input: {
+      symbol: SYMBOL,
+      window: WINDOW,
+      price: z.number().positive().optional().describe("Optional current futures price, so typical moves and stops can be expressed as levels"),
+    },
+  },
+  {
     name: "pre_trade_check",
     price: 0.10,
     method: "GET",

@@ -6,6 +6,7 @@
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { generatePrivateKey } from "viem/accounts";
+import { readFileSync } from "node:fs";
 
 let fail = 0;
 const check = (ok, msg) => { if (!ok) fail++; console.log(`${ok ? "ok  " : "FAIL"} ${msg}`); };
@@ -19,8 +20,12 @@ async function withServer(env, fn) {
 
 await withServer({}, async (c) => {
   const { tools } = await c.listTools();
-  check(tools.length === 11, `lists ${tools.length} tools: ${tools.map((t) => t.name).join(", ")}`);
+  check(tools.length === 12, `lists ${tools.length} tools: ${tools.map((t) => t.name).join(", ")}`);
   check(tools.every((t) => /^Price: \$\d/.test(t.description)), "every tool description states its price");
+  const ai = tools.find((t) => t.name === "ai_trade_brief");
+  check(ai && /^Price: \$0\.08/.test(ai.description) && ai.inputSchema?.required?.includes("symbol"), "ai_trade_brief is listed at $0.08 with required symbol");
+  const pkgVersion = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")).version;
+  check(c.getServerVersion()?.version === pkgVersion, `server reports package version ${c.getServerVersion()?.version} (package.json ${pkgVersion})`);
   const r = await c.callTool({ name: "event_gate", arguments: { window: 30 } });
   check(r.isError && /X402_PRIVATE_KEY/.test(r.content[0].text), `no key → clear error: "${r.content[0].text.slice(0, 90)}…"`);
 });

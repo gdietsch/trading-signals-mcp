@@ -12,9 +12,11 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { wrapFetchWithPaymentFromConfig, decodePaymentResponseHeader } from "@x402/fetch";
 import { ExactEvmScheme } from "@x402/evm/exact/client";
 import { privateKeyToAccount } from "viem/accounts";
+import { readFileSync } from "node:fs";
 import { TOOLS, fmtPrice } from "./tools.js";
 
-export const VERSION = "0.1.1";
+// Single source of truth: the published package.json (always shipped in the npm tarball).
+export const VERSION = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")).version;
 export const DEFAULT_BASE_URL = "https://signals.incomefather.com";
 const BASE_MAINNET = "eip155:8453";
 const USDC_BASE = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913";
