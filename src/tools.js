@@ -68,6 +68,19 @@ export const TOOLS = [
     },
   },
   {
+    name: "treasury_desk",
+    price: 0.01,
+    method: "GET",
+    path: "/rates/treasury-desk",
+    title: "Treasury Auction and Yields Desk",
+    description: "US rates snapshot: Treasury par yield curve 1m-30y with 2s10s, 3m10y, 2s5s and 5s30s spreads and 1-day/1-week/1-month changes in bp; upcoming Treasury auctions with ET close time and minutes-to (reopenings labeled); recent auction results with high yield, bid-to-cover and indirect/direct/dealer shares versus the prior six auctions of the same security, plus a strong/average/weak demand label. Informational, not investment advice.",
+    input: {
+      days: z.number().int().min(1).max(60).optional().describe("Upcoming-auction lookahead in days (default 14)"),
+      results: z.number().int().min(1).max(20).optional().describe("Number of recent auction results (default 6)"),
+      bills: z.boolean().optional().describe("true = bills instead of notes, bonds, TIPS and FRNs"),
+    },
+  },
+  {
     name: "event_gate",
     price: 0.01,
     method: "GET",

@@ -6,7 +6,7 @@ Copy-paste quickstarts (curl, JavaScript and Python x402 clients, Claude Desktop
 
 ## Hosted remote server (no install, no wallet)
 
-The same 19 tools are also served as a remote MCP server (Streamable HTTP):
+The same 20 tools are also served as a remote MCP server (Streamable HTTP):
 
 ```
 https://signals.incomefather.com/mcp
@@ -55,6 +55,7 @@ The local package below pays per call over x402 from your own wallet instead.
 | `sec_13f_holders` | $0.02 | Which notable fund managers (Berkshire, Pershing Square, Bridgewater and ~24 more) hold a stock, with quarter-over-quarter change |
 | `token_pre_trade` | $0.025 | One GO / CAUTION / STOP answer before buying a Solana or Base token: token verdict + OFAC screen of the counterparty wallet and token authorities + wallet pay-readiness, cheaper than the separate calls |
 | `cot_screener` | $0.02 | Weekly CFTC COT positioning across 45 futures markets: large-speculator net, % of open interest, weekly change, 3-year percentile, crowded long / short flags, biggest shifts |
+| `treasury_desk` | $0.01 | US rates snapshot: Treasury par curve with 2s10s / 3m10y / 5s30s and 1d/1w/1m changes, upcoming auctions with ET close times, recent results with bid-to-cover and dealer share vs prior auctions |
 | `vwap_bands` | $0.005 | VWAP + standard-deviation bands from your bars |
 | `opening_range` | $0.005 | Opening range, breakout state and targets from your bars |
 | `atr_stop` | $0.005 | Wilder ATR, stop price and position size |
