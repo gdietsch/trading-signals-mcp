@@ -121,7 +121,7 @@ export function createServer(env = process.env) {
         title: `${tool.title} (${fmtPrice(tool.price)})`,
         description: `Price: ${fmtPrice(tool.price)} USDC per call on Base, paid automatically via x402 from X402_PRIVATE_KEY. ${tool.description} Failed calls (4xx/5xx) are not charged. Informational only, not investment advice.`,
         inputSchema: tool.input,
-        annotations: { readOnlyHint: true, openWorldHint: true, idempotentHint: false },
+        annotations: { title: tool.title, readOnlyHint: true, destructiveHint: false, openWorldHint: true, idempotentHint: false },
       },
       async (args) => callRoute(tool, args, cfg),
     );

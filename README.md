@@ -4,6 +4,34 @@ An MCP server that gives Claude, Cursor, LangChain and any other MCP-capable age
 
 Copy-paste quickstarts (curl, JavaScript and Python x402 clients, Claude Desktop / Cursor / Cline configs, LangChain, OpenAI Agents SDK): [gdietsch/trading-signals-examples](https://github.com/gdietsch/trading-signals-examples). Guides: [signals.incomefather.com/guides](https://signals.incomefather.com/guides).
 
+## Hosted remote server (no install, no wallet)
+
+The same 12 tools are also served as a remote MCP server (Streamable HTTP):
+
+```
+https://signals.incomefather.com/mcp
+```
+
+- **No key:** small anonymous daily allowance (AI trade brief 1 per day).
+- **Free key** (100 calls/month, no card) or Starter/Pro key from [/pricing](https://signals.incomefather.com/pricing): send `Authorization: Bearer tsk_…`, or append `?key=tsk_…` to the URL in clients that can't set headers.
+
+Cursor / Claude Code / Windsurf (`mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "trading-signals": {
+      "url": "https://signals.incomefather.com/mcp",
+      "headers": { "Authorization": "Bearer tsk_your_key" }
+    }
+  }
+}
+```
+
+Claude (web/desktop): Settings → Connectors → Add custom connector → `https://signals.incomefather.com/mcp`. ChatGPT: Settings → Apps & Connectors → Advanced settings → Developer mode → Create → same URL, no authentication. [Privacy](https://signals.incomefather.com/privacy) · [Terms](https://signals.incomefather.com/terms)
+
+The local package below pays per call over x402 from your own wallet instead.
+
 ## Tools and prices
 
 | Tool | Price (USDC) | What it returns |
