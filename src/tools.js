@@ -89,6 +89,19 @@ export const TOOLS = [
     input: { mint: z.string().regex(/^[1-9A-HJ-NP-Za-km-z]{32,44}$/).describe("Solana token mint address (base58), e.g. DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263 for BONK") },
   },
   {
+    name: "sanctions_screen",
+    price: 0.01,
+    method: "GET",
+    path: "/compliance/sanctions-screen",
+    title: "OFAC Sanctions Screen",
+    description: "Screen a crypto address (any chain: EVM/Base/Ethereum, Bitcoin, Tron, Solana and more, via OFAC's listed digital currency addresses) and/or a person or entity name (fuzzy, scored 0-100) against the official US Treasury OFAC SDN and Consolidated sanctions lists. Returns clear / match / possible_match, the matched entries (name, programs, aliases), list publish date, timestamp and sources. Use before sending funds to or onboarding a counterparty. Informational only, not legal or compliance advice.",
+    input: {
+      address: z.string().regex(/^[A-Za-z0-9]{20,128}$/).optional().describe("Crypto address on any chain, e.g. 0x… (EVM), bc1…/1…/3… (Bitcoin), T… (Tron), base58 (Solana)"),
+      name: z.string().min(3).max(200).optional().describe("Person or entity name to screen (fuzzy match)"),
+      minScore: z.number().int().min(70).max(100).optional().describe("Minimum name match score 70-100 (default 85)"),
+    },
+  },
+  {
     name: "insider_buys",
     price: 0.01,
     method: "GET",
