@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "trading-signals": {
+      "type": "http",
+      "url": "https://signals.incomefather.com/mcp"
+    }
+  }
+}

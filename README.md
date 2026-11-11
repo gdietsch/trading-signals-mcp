@@ -30,6 +30,8 @@ Cursor / Claude Code / Windsurf (`mcp.json`):
 
 Claude (web/desktop): Settings → Connectors → Add custom connector → `https://signals.incomefather.com/mcp`. ChatGPT: Settings → Apps & Connectors → Advanced settings → Developer mode → Create → same URL, no authentication. [Privacy](https://signals.incomefather.com/privacy) · [Terms](https://signals.incomefather.com/terms)
 
+**Grok Build:** this repo is a Grok Build plugin (`.grok-plugin/plugin.json` and `.mcp.json`). It connects to the hosted MCP above. No install and no wallet. The local `npx -y x402-trading-signals-mcp` path in [Setup](#setup) is a separate, optional alternative that pays per call from your own USDC wallet; it is not auto-started by the plugin, because it needs `X402_PRIVATE_KEY` in your client environment.
+
 The local package below pays per call over x402 from your own wallet instead.
 
 ## Tools and prices
