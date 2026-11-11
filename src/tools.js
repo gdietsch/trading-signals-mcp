@@ -80,6 +80,15 @@ export const TOOLS = [
     input: { address: z.string().regex(/^0x[0-9a-fA-F]{40}$/).describe("Base ERC-20 token contract address") },
   },
   {
+    name: "solana_token_verdict",
+    price: 0.02,
+    method: "GET",
+    path: "/solana/token-verdict",
+    title: "Solana Token Verdict",
+    description: "Safe / caution / avoid verdict (plus A-F grade and plain reasons) for a Solana SPL or Token-2022 mint: mint and freeze authority (renounced or not), supply, Token-2022 risk extensions (transfer fee, transfer hook, permanent delegate, non-transferable, default-frozen, pausable), DEX liquidity, first-pool age, holder concentration and a live ~$1k sell-route test to USDC with price impact. Includes a timestamp and sources. Heuristic, not a security audit.",
+    input: { mint: z.string().regex(/^[1-9A-HJ-NP-Za-km-z]{32,44}$/).describe("Solana token mint address (base58), e.g. DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263 for BONK") },
+  },
+  {
     name: "insider_buys",
     price: 0.01,
     method: "GET",

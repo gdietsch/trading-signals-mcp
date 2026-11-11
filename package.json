@@ -1,8 +1,8 @@
 {
   "name": "x402-trading-signals-mcp",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "mcpName": "io.github.gdietsch/trading-signals-mcp",
-  "description": "MCP server for the Trading Signals Toolkit: pay-per-call $0.08 AI trade brief, futures event-risk gate, session brief, $0.10 pre-trade check, macro event study, SEC insider buys/clusters, Base token verdicts and quant calculators, paid automatically over x402 (USDC on Base).",
+  "description": "MCP server for the Trading Signals Toolkit: pay-per-call $0.08 AI trade brief, futures event-risk gate, session brief, $0.10 pre-trade check, macro event study, SEC insider buys/clusters, Base and Solana token verdicts and quant calculators, paid automatically over x402 (USDC on Base).",
   "type": "module",
   "bin": {
     "trading-signals-mcp": "bin/trading-signals-mcp.js",
@@ -37,6 +37,7 @@
     "insider-trading",
     "form4",
     "token-security",
+    "solana",
     "claude",
     "cursor",
     "langchain",
