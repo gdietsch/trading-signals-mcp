@@ -39,6 +39,21 @@ export const TOOLS = [
     },
   },
   {
+    name: "token_pre_trade",
+    price: 0.025,
+    method: "GET",
+    path: "/bundle/token-pre-trade",
+    title: "Token Pre-Trade Pack",
+    description: "One GO / CAUTION / STOP answer before buying or paying with a token: the Solana or Base token safety verdict, an OFAC sanctions screen of the token's mint/freeze authority or owner and of an optional counterparty wallet, and that wallet's pay-readiness (balances, canPay, shortfalls, approvals) for a USDC amount, with plain reasons. Cheaper than calling the parts separately. Heuristic, not an audit, legal or investment advice.",
+    input: {
+      token: z.string().regex(/^(0x[0-9a-fA-F]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$/).describe("Solana mint (base58) or Base ERC-20 address (0x…), e.g. DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263 for BONK"),
+      chain: z.enum(["base", "solana"]).optional().describe("Token chain (default: detected from the address)"),
+      wallet: z.string().regex(/^(0x[0-9a-fA-F]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$/).optional().describe("Optional counterparty or paying wallet (Base 0x… or Solana base58)"),
+      walletChain: z.enum(["base", "solana"]).optional().describe("Wallet chain (default: detected)"),
+      amount: z.number().positive().max(1e9).optional().describe("USDC the wallet wants to pay (default 1; needs wallet)"),
+    },
+  },
+  {
     name: "event_gate",
     price: 0.01,
     method: "GET",
@@ -229,4 +244,4 @@ export const TOOLS = [
   },
 ];
 
-export const fmtPrice = (usd) => `$${usd < 0.01 ? usd.toFixed(3) : usd.toFixed(2)}`;
+export const fmtPrice = (usd) => `$${Math.abs(usd * 100 - Math.round(usd * 100)) > 1e-9 ? usd.toFixed(3) : usd.toFixed(2)}`;
