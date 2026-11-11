@@ -54,6 +54,20 @@ export const TOOLS = [
     },
   },
   {
+    name: "cot_screener",
+    price: 0.02,
+    method: "GET",
+    path: "/futures/cot-screener",
+    title: "CFTC COT Positioning Screener",
+    description: "Weekly CFTC Commitments of Traders screener across 45 futures markets (equity indexes, VIX, Treasuries, SOFR, crude, natgas, gold, silver, copper, grains, livestock, softs, FX, BTC, ETH): large-speculator net position, % of open interest, weekly change, 3-year percentile, crowded_long / crowded_short flags, biggest weekly shifts and net flips, plus the next release time. Informational, not investment advice.",
+    input: {
+      extreme: z.boolean().optional().describe("true = only markets flagged crowded_long or crowded_short"),
+      assetClass: z.string().max(120).optional().describe("Comma list: equity_index, volatility, rates, energy, metals, grains, livestock, softs, fx, crypto"),
+      symbols: z.string().max(200).optional().describe("Comma list, e.g. ES,NQ,GC,CL,ZN,6E,BTC"),
+      threshold: z.number().int().min(50).max(99).optional().describe("Percentile that counts as crowded (default 90)"),
+    },
+  },
+  {
     name: "event_gate",
     price: 0.01,
     method: "GET",
