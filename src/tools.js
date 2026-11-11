@@ -139,6 +139,28 @@ export const TOOLS = [
     },
   },
   {
+    name: "sec_13f_holdings",
+    price: 0.02,
+    method: "GET",
+    path: "/sec/13f-holdings",
+    title: "SEC 13F Fund Holdings",
+    description: "Latest SEC Form 13F-HR holdings for one fund manager, by CIK or name (e.g. berkshire, pershing square, bridgewater): top positions with ticker, CUSIP, shares, value and % of portfolio, portfolio totals, and quarter-over-quarter changes (new, added, trimmed, exited) vs the prior 13F, with period, filing date and EDGAR links. As filed, up to 45 days after quarter end; not current positions.",
+    input: {
+      cik: z.number().int().positive().optional().describe("SEC CIK of the manager, e.g. 1067983 for Berkshire Hathaway"),
+      name: z.string().min(2).max(100).optional().describe("Manager name if you don't know the CIK, e.g. 'pershing square'"),
+      top: z.number().int().min(1).max(100).optional().describe("Number of top positions (default 25)"),
+    },
+  },
+  {
+    name: "sec_13f_holders",
+    price: 0.02,
+    method: "GET",
+    path: "/sec/13f-holders",
+    title: "SEC 13F Notable Holders of a Stock",
+    description: "Which notable fund managers (Berkshire Hathaway, Pershing Square, Bridgewater, Baupost, Duquesne, Appaloosa, Soros, Tiger Global, Coatue, ARK and ~17 more) hold a stock in their latest SEC 13F-HR: shares, value, % of each portfolio and quarter-over-quarter change (new, added, trimmed, exited). As filed, up to 45 days after quarter end.",
+    input: { ticker: z.string().regex(/^[A-Za-z][A-Za-z0-9.\-]{0,9}$/).describe("US stock ticker, e.g. AAPL") },
+  },
+  {
     name: "vwap_bands",
     price: 0.005,
     method: "POST",

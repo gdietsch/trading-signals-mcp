@@ -6,7 +6,7 @@ Copy-paste quickstarts (curl, JavaScript and Python x402 clients, Claude Desktop
 
 ## Hosted remote server (no install, no wallet)
 
-The same 15 tools are also served as a remote MCP server (Streamable HTTP):
+The same 17 tools are also served as a remote MCP server (Streamable HTTP):
 
 ```
 https://signals.incomefather.com/mcp
@@ -51,6 +51,8 @@ The local package below pays per call over x402 from your own wallet instead.
 | `sanctions_screen` | $0.01 | OFAC sanctions screen for a crypto address (any chain) and/or a name (fuzzy score): clear / match / possible_match with matched SDN or Consolidated entries, list publish date and sources. Informational, not legal advice |
 | `insider_buys` | $0.01 | SEC Form 4 open-market insider purchases for one ticker |
 | `insider_clusters` | $0.02 | Tickers with several distinct insiders buying in the last N days |
+| `sec_13f_holdings` | $0.02 | Latest SEC 13F holdings for a fund manager (CIK or name): top positions, value, % of portfolio and quarter-over-quarter new / added / trimmed / exited |
+| `sec_13f_holders` | $0.02 | Which notable fund managers (Berkshire, Pershing Square, Bridgewater and ~24 more) hold a stock, with quarter-over-quarter change |
 | `vwap_bands` | $0.005 | VWAP + standard-deviation bands from your bars |
 | `opening_range` | $0.005 | Opening range, breakout state and targets from your bars |
 | `atr_stop` | $0.005 | Wilder ATR, stop price and position size |
