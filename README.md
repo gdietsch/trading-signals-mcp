@@ -32,6 +32,8 @@ Claude (web/desktop): Settings → Connectors → Add custom connector → `http
 
 **Grok Build:** this repo is a Grok Build plugin (`.grok-plugin/plugin.json` and `.mcp.json`). It connects to the hosted MCP above. No install and no wallet. The local `npx -y x402-trading-signals-mcp` path in [Setup](#setup) is a separate, optional alternative that pays per call from your own USDC wallet; it is not auto-started by the plugin, because it needs `X402_PRIVATE_KEY` in your client environment.
 
+**Cursor:** `.cursor-plugin/plugin.json` and `mcp.json` package the same hosted MCP for the official Cursor Marketplace. The Grok Build files above are unchanged.
+
 The local package below pays per call over x402 from your own wallet instead.
 
 ## Tools and prices

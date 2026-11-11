@@ -1,0 +1,21 @@
+{
+  "name": "trading-signals-toolkit",
+  "displayName": "Trading Signals Toolkit",
+  "version": "0.1.5",
+  "description": "Read-only pre-trade checks, event-risk gates, SEC Form 4 insider buys, and quant tools via the hosted MCP at signals.incomefather.com/mcp. Free tier or pay per call in USDC via x402 ($0.005-$0.10). Informational only, not investment advice.",
+  "author": {
+    "name": "gdietsch",
+    "email": "gdietsch-j16thn@mail.grokbot.com"
+  },
+  "homepage": "https://signals.incomefather.com",
+  "repository": "https://github.com/gdietsch/trading-signals-mcp",
+  "license": "MIT",
+  "keywords": [
+    "trading signals toolkit",
+    "incomefather",
+    "signals.incomefather",
+    "x402-trading-signals-mcp"
+  ],
+  "category": "finance",
+  "logo": "assets/logo.png"
+}
