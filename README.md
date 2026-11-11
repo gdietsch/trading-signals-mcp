@@ -6,7 +6,7 @@ Copy-paste quickstarts (curl, JavaScript and Python x402 clients, Claude Desktop
 
 ## Hosted remote server (no install, no wallet)
 
-The same 14 tools are also served as a remote MCP server (Streamable HTTP):
+The same 15 tools are also served as a remote MCP server (Streamable HTTP):
 
 ```
 https://signals.incomefather.com/mcp
@@ -47,6 +47,7 @@ The local package below pays per call over x402 from your own wallet instead.
 | `session_brief` | $0.03 | Upcoming releases, latest BLS values, Treasury 2y/10y/2s10s, CFTC COT positioning, holidays, verdict |
 | `token_verdict` | $0.02 | A-F verdict for a Base ERC-20: owner, proxy, liquidity, honeypot simulation, taxes |
 | `solana_token_verdict` | $0.02 | Safe / caution / avoid for a Solana SPL or Token-2022 mint: mint and freeze authority, Token-2022 risk extensions, liquidity, pool age, holder concentration, live sell-route test |
+| `wallet_pay_readiness` | $0.01 | Can this Base or Solana wallet pay a USDC amount? Balances, canPay (x402 / direct transfer), shortfalls, USDC blacklist or frozen flags, wallet type and open token approvals, with ok / review / cannot_pay |
 | `sanctions_screen` | $0.01 | OFAC sanctions screen for a crypto address (any chain) and/or a name (fuzzy score): clear / match / possible_match with matched SDN or Consolidated entries, list publish date and sources. Informational, not legal advice |
 | `insider_buys` | $0.01 | SEC Form 4 open-market insider purchases for one ticker |
 | `insider_clusters` | $0.02 | Tickers with several distinct insiders buying in the last N days |

@@ -89,6 +89,19 @@ export const TOOLS = [
     input: { mint: z.string().regex(/^[1-9A-HJ-NP-Za-km-z]{32,44}$/).describe("Solana token mint address (base58), e.g. DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263 for BONK") },
   },
   {
+    name: "wallet_pay_readiness",
+    price: 0.01,
+    method: "GET",
+    path: "/wallet/pay-readiness",
+    title: "Wallet Pay-Readiness",
+    description: "Before an agent pays: can this Base or Solana wallet pay a given USDC amount? Returns ETH/SOL and USDC balances, canPay for x402 (gasless for the payer) and for a direct transfer, shortfalls, USDC blacklist / frozen-account flags, wallet type (EOA, smart contract, EIP-7702) and open token approvals to well-known spenders (Base routers, Permit2, bridges) or SPL delegates (Solana), with an ok / review / cannot_pay status. Read live from public RPC.",
+    input: {
+      address: z.string().regex(/^(0x[0-9a-fA-F]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$/).describe("Wallet address: Base 0x… or Solana base58"),
+      chain: z.enum(["base", "solana"]).optional().describe("Chain (default: detected from the address format)"),
+      amount: z.number().positive().max(1e9).optional().describe("USDC amount to pay (default 1)"),
+    },
+  },
+  {
     name: "sanctions_screen",
     price: 0.01,
     method: "GET",
