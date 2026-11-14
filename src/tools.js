@@ -131,6 +131,20 @@ export const TOOLS = [
     input: { mint: z.string().regex(/^[1-9A-HJ-NP-Za-km-z]{32,44}$/).describe("Solana token mint address (base58), e.g. DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263 for BONK") },
   },
   {
+    name: "whale_flow",
+    price: 0.02,
+    method: "GET",
+    path: "/crypto/whale-flow",
+    title: "Crypto Whale Flow",
+    description: "Call before chasing or fading a Base or Solana token move, to see if big wallets are buying or dumping. Large DEX trades from the last 1-24h in the token's top 3 pools: whale buy vs sell USD, net flow and % of liquidity, accumulation / distribution signal, hourly flow, largest trades with wallets, top accumulators and distributors. Solana adds Jupiter buy/sell volume. No CEX in/outflows.",
+    input: {
+      token: z.string().regex(/^(0x[0-9a-fA-F]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$/).describe("Token address: Base ERC-20 0x… or Solana mint (base58)"),
+      chain: z.enum(["base", "solana"]).optional().describe("Chain (default: detected from the token format)"),
+      hours: z.number().int().min(1).max(24).optional().describe("Look-back window in hours (default 24)"),
+      minUsd: z.number().min(50).max(1000000).optional().describe("Minimum trade size in USD (default: auto from liquidity and volume)"),
+    },
+  },
+  {
     name: "wallet_pay_readiness",
     price: 0.01,
     method: "GET",

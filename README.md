@@ -6,7 +6,7 @@ Copy-paste quickstarts (curl, JavaScript and Python x402 clients, Claude Desktop
 
 ## Hosted remote server (no install, no wallet)
 
-The same 20 tools are also served as a remote MCP server (Streamable HTTP):
+The same 21 tools are also served as a remote MCP server (Streamable HTTP):
 
 ```
 https://signals.incomefather.com/mcp
@@ -47,6 +47,7 @@ The local package below pays per call over x402 from your own wallet instead.
 | `session_brief` | $0.03 | Upcoming releases, latest BLS values, Treasury 2y/10y/2s10s, CFTC COT positioning, holidays, verdict |
 | `token_verdict` | $0.01 | Call before buying a Base ERC-20: safe / caution / avoid + A-F with honeypot simulation and taxes, owner/mint/proxy/blacklist/pause flags, liquidity and LP lock, top-10 holders, launch snipers and bundles |
 | `solana_token_verdict` | $0.01 | Call before buying a Solana mint: safe / caution / avoid + A-F with mint and freeze authority, Token-2022 traps, liquidity and LP lock, live sell test, top-10 holders, creator stake and linked insider (sniper/bundle) wallets |
+| `whale_flow` | $0.02 | Are big wallets buying or dumping a Base or Solana token? Large DEX trades (1-24h) in the top 3 pools: whale buy/sell USD, net flow, accumulation / distribution signal, hourly flow, largest trades, top accumulators and distributors. No CEX in/outflows |
 | `wallet_pay_readiness` | $0.01 | Can this Base or Solana wallet pay a USDC amount? Balances, canPay (x402 / direct transfer), shortfalls, USDC blacklist or frozen flags, wallet type and open token approvals, with ok / review / cannot_pay |
 | `sanctions_screen` | $0.01 | OFAC sanctions screen for a crypto address (any chain) and/or a name (fuzzy score): clear / match / possible_match with matched SDN or Consolidated entries, list publish date and sources. Informational, not legal advice |
 | `insider_buys` | $0.01 | SEC Form 4 open-market insider purchases for one ticker |

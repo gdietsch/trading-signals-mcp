@@ -20,7 +20,7 @@ async function withServer(env, fn) {
 
 await withServer({}, async (c) => {
   const { tools } = await c.listTools();
-  check(tools.length === 20, `lists ${tools.length} tools: ${tools.map((t) => t.name).join(", ")}`);
+  check(tools.length === 21, `lists ${tools.length} tools: ${tools.map((t) => t.name).join(", ")}`);
   check(tools.every((t) => /^Price: \$\d/.test(t.description)), "every tool description states its price");
   const ai = tools.find((t) => t.name === "ai_trade_brief");
   check(ai && /^Price: \$0\.08/.test(ai.description) && ai.inputSchema?.required?.includes("symbol"), "ai_trade_brief is listed at $0.08 with required symbol");
