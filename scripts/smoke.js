@@ -37,7 +37,7 @@ await withServer({ X402_PRIVATE_KEY: generatePrivateKey(), MAX_USD_PER_CALL: "0.
 
 if (process.env.SMOKE_NETWORK !== "0") {
   await withServer({ X402_PRIVATE_KEY: generatePrivateKey() }, async (c) => {
-    const r = await c.callTool({ name: "event_gate", arguments: { window: 30 } });
+    const r = await c.callTool({ name: "insider_clusters", arguments: { days: 7 } }); // not in the free HTTP trial, so it must pay
     const t = r.content[0].text;
     check(r.isError && /payment|402|insufficient|balance/i.test(t), `unfunded throwaway wallet → clean payment error: "${t.replace(/\s+/g, " ").slice(0, 140)}…"`);
   });

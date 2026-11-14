@@ -1,7 +1,7 @@
 {
   "name": "trading-signals-toolkit",
   "displayName": "Trading Signals Toolkit",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Read-only pre-trade checks, event-risk gates, SEC Form 4 insider buys, and quant tools via the hosted MCP at signals.incomefather.com/mcp. Free tier or pay per call in USDC via x402 ($0.005-$0.10). Informational only, not investment advice.",
   "author": {
     "name": "gdietsch",
