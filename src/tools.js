@@ -40,7 +40,7 @@ export const TOOLS = [
   },
   {
     name: "token_pre_trade",
-    price: 0.025,
+    price: 0.015,
     method: "GET",
     path: "/bundle/token-pre-trade",
     title: "Token Pre-Trade Pack",

@@ -1,6 +1,6 @@
 {
   "name": "trading-signals-toolkit",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "Read-only trading tools for Grok Build via the hosted MCP at signals.incomefather.com/mcp: pre-trade checks, event-risk gates, SEC Form 4 insider buys, and quant tools. Free tier or pay per call in USDC via x402 ($0.005-$0.10). Informational only, not investment advice.",
   "author": {
     "name": "gdietsch",
